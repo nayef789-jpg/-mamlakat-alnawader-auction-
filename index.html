@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>مزاد عزبة مملكة النوادر</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--accent:#111827;--ok:#047857;--warn:#b45309;--bad:#b91c1c;--blue:#1d4ed8;--shadow:0 8px 28px rgba(17,24,39,.08);--radius:18px}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}.app{max-width:1280px;margin:auto;min-height:100vh}
+header{position:sticky;top:0;z-index:20;background:rgba(17,24,39,.96);color:#fff;padding:14px 18px;backdrop-filter:blur(12px)}
+.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:58px;height:58px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid rgba(255,255,255,.25)}
+.brand-text h1{font-size:20px;margin:0}.brand-text small{opacity:.75}.hero-brand{display:flex;align-items:center;gap:16px}
+.hero-logo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#fff}
+.report-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}.report-brand img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.head-actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:10px 14px;cursor:pointer;background:#e5e7eb;color:#111827;font-weight:700}
+.btn:hover{filter:brightness(.98)}.btn.dark{background:#111827;color:#fff}.btn.white{background:#fff}.btn.ok{background:#047857;color:#fff}
+.btn.blue{background:#1d4ed8;color:#fff}.btn.bad{background:#b91c1c;color:#fff}.btn.warn{background:#b45309;color:#fff}.btn.ghost{background:transparent;color:inherit;border:1px solid rgba(255,255,255,.22)}
+nav{display:flex;gap:8px;overflow:auto;padding:12px 18px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:86px;z-index:15}
+nav button{white-space:nowrap;border:0;border-radius:999px;padding:9px 14px;background:#f3f4f6;font-weight:800;cursor:pointer}nav button.active{background:#111827;color:#fff}
+main{padding:18px}.grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.stat b{font-size:28px;display:block;margin-top:4px}.stat span{color:var(--muted);font-weight:700}h2{font-size:22px;margin:0 0 14px}h3{margin:0 0 12px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}label{display:block;font-size:12px;font-weight:800;color:#374151;margin-bottom:6px}
+input,select{width:100%;border:1px solid #d1d5db;border-radius:12px;padding:11px 12px;background:#fff;outline:none}
+input:focus,select:focus{border-color:#111827;box-shadow:0 0 0 3px rgba(17,24,39,.08)}.actions{display:flex;gap:8px;align-items:end;flex-wrap:wrap}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:780px;background:#fff}
+th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:right;font-size:14px}th{background:#f9fafb;position:sticky;top:0}tr:last-child td{border-bottom:0}
+.badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800;background:#f3f4f6}
+.badge.ok{background:#d1fae5;color:#065f46}.badge.bad{background:#fee2e2;color:#991b1b}.badge.warn{background:#fef3c7;color:#92400e}.badge.blue{background:#dbeafe;color:#1e40af}
+.hidden{display:none!important}.pen-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.pen{cursor:pointer}.pen:hover{transform:translateY(-1px)}.pen .num{font-size:30px;font-weight:900}.pen small{color:var(--muted)}
+.auction{max-width:880px;margin:auto}.auction .lookup{display:flex;gap:10px}.auction .lookup input{font-size:22px;padding:15px}.auction-result{margin-top:16px}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line)}.kv:last-child{border-bottom:0}.kv span:first-child{color:var(--muted);font-weight:800}
+.notice{padding:12px;border-radius:12px;background:#eff6ff;color:#1e3a8a;border:1px solid #bfdbfe;margin-bottom:12px}.danger-note{padding:12px;border-radius:12px;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;margin-bottom:12px}
+.money{font-variant-numeric:tabular-nums;font-weight:900}.small{font-size:12px;color:var(--muted)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:18px;z-index:99}.modal-box{background:#fff;max-width:900px;width:100%;border-radius:20px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.25);max-height:90vh;overflow:auto}
+.split{display:flex;gap:10px}.split>*{flex:1}footer{padding:22px;color:var(--muted);text-align:center;font-size:12px}
+.invoice-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+@media(max-width:900px){.g4,.g3,.g2,.form,.pen-grid,.invoice-summary{grid-template-columns:repeat(2,minmax(0,1fr))}nav{top:108px}}
+@media(max-width:620px){main{padding:12px}.g4,.g3,.g2,.form,.pen-grid,.invoice-summary{grid-template-columns:1fr}.auction .lookup{flex-direction:column}.top{align-items:flex-start}nav{top:132px}.kv{grid-template-columns:110px 1fr}.brand-logo{width:48px;height:48px}.hero-logo{width:82px;height:82px}}
+@media print{header,nav,.no-print,footer{display:none!important}body{background:#fff}.card{box-shadow:none;border:0}main{padding:0}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="top">
+  <div class="brand">
+    <img class="brand-logo" src="auction-logo.jpg" alt="شعار عزبة مملكة النوادر" onerror="this.style.display='none'">
+    <div class="brand-text"><h1 id="auctionTitle">مزاد عزبة مملكة النوادر</h1><small>إدارة الملاك، الحلال، الشبوك، المشترين، البيع والحسابات</small></div>
+  </div>
+  <div class="head-actions no-print">
+    <button class="btn ghost" onclick="exportBackup()">نسخة احتياطية</button>
+    <label class="btn ghost" style="cursor:pointer">استيراد<input id="importFile" type="file" accept=".json" style="display:none"></label>
+    <button class="btn white" onclick="showSettings()">الإعدادات</button>
+  </div>
+</div>
+</header>
+<nav class="no-print" id="nav"></nav>
+<main>
+<section id="dashboard" class="page"></section>
+<section id="sellers" class="page hidden"></section>
+<section id="livestock" class="page hidden"></section>
+<section id="pens" class="page hidden"></section>
+<section id="buyers" class="page hidden"></section>
+<section id="auction" class="page hidden"></section>
+<section id="payments" class="page hidden"></section>
+<section id="reports" class="page hidden"></section>
+</main>
+<footer><span id="cloudStatus">جاري الاتصال بالحفظ السحابي...</span> — خذ نسخة احتياطية قبل وأثناء وبعد المزاد.</footer>
+</div>
+<div id="modalRoot"></div>
+
+<script>
+const DB_KEY='sheepAuctionDB_v1';
+const CLOUD_PIN_KEY='mamlakatAlnawaderCloudPin_v1';
+const CLOUD_URL='https://kclizioxcbriyqhbaoar.supabase.co/functions/v1/auction-state';
+let cloudVersion=0,cloudReady=false,cloudSaving=false,cloudSaveQueued=false,cloudTimer=null,lastCloudDB=null;
+
+const defaultDB={
+ settings:{title:'مزاد عزبة مملكة النوادر',commission:10,currency:'د.إ',pens:12},
+ sellers:[],livestock:[],buyers:[],supporters:[],
+ meta:{sellerSeq:1,buyerSeq:1,supporterSeq:1}
+};
+let db=loadDB();
+
+function clone(v){return JSON.parse(JSON.stringify(v))}
+function loadDB(){
+ try{
+  const raw=localStorage.getItem(DB_KEY);
+  if(!raw)return clone(defaultDB);
+  const x=JSON.parse(raw);
+  return {...clone(defaultDB),...x,settings:{...defaultDB.settings,...(x.settings||{})},meta:{...defaultDB.meta,...(x.meta||{})},supporters:x.supporters||[]};
+ }catch(e){return clone(defaultDB)}
+}
+function saveDB(){localStorage.setItem(DB_KEY,JSON.stringify(db));renderAll();queueCloudSave()}
+function setCloudStatus(t){const el=document.getElementById('cloudStatus');if(el)el.textContent=t}
+function normalizeDB(x){return {...clone(defaultDB),...(x||{}),settings:{...defaultDB.settings,...((x||{}).settings||{})},meta:{...defaultDB.meta,...((x||{}).meta||{})},supporters:(x||{}).supporters||[]}}
+function currentPin(){return localStorage.getItem(CLOUD_PIN_KEY)||''}
+async function cloudRequest(method,payload){
+ const pin=currentPin();if(!pin)return {ok:false,status:401,data:{error:'missing_pin'}};
+ try{
+  const res=await fetch(CLOUD_URL,{method,headers:{'Content-Type':'application/json','x-auction-pin':pin},body:payload?JSON.stringify(payload):undefined});
+  let data={};try{data=await res.json()}catch(_){}
+  return {ok:res.ok,status:res.status,data}
+ }catch(err){return {ok:false,status:0,data:{error:'network',message:String(err)}}}
+}
+function showCloudLogin(message=''){
+ cloudReady=false;setCloudStatus('الحفظ السحابي غير متصل');
+ document.getElementById('modalRoot').innerHTML=`<div class="modal"><div class="modal-box" style="max-width:560px">
+ <h3>دخول نظام مزاد مملكة النوادر</h3>
+ <div class="notice">أدخل رمز الدخول. البيانات تنحفظ على الجهاز، ومع الاتصال تنحفظ أونلاين تلقائياً.</div>
+ ${message?`<div class="danger-note">${esc(message)}</div>`:''}
+ <form onsubmit="connectCloud(event)"><label>رمز الدخول</label><input name="pin" inputmode="numeric" autocomplete="off" maxlength="20" required autofocus>
+ <div class="actions" style="margin-top:14px"><button class="btn dark" type="submit">دخول</button><button class="btn" type="button" onclick="workOffline()">العمل مؤقتاً بدون سحابة</button></div></form>
+ </div></div>`
+}
+function workOffline(){document.getElementById('modalRoot').innerHTML='';setCloudStatus('العمل محلياً — خذ نسخة احتياطية')}
+async function connectCloud(e){e.preventDefault();const pin=new FormData(e.target).get('pin').trim();localStorage.setItem(CLOUD_PIN_KEY,pin);setCloudStatus('جاري التحقق...');const ok=await loadCloudState();if(!ok){localStorage.removeItem(CLOUD_PIN_KEY);showCloudLogin('رمز الدخول غير صحيح أو تعذر الاتصال.')}}
+async function loadCloudState(){
+ const r=await cloudRequest('GET');
+ if(!r.ok){if(r.status===401)return false;setCloudStatus('تعذر الاتصال بالسحابة — البيانات محفوظة على هذا الجهاز');return true}
+ cloudVersion=Number(r.data.version||0);
+ if(r.data.state){db=normalizeDB(r.data.state);lastCloudDB=clone(db);localStorage.setItem(DB_KEY,JSON.stringify(db));renderAll()}
+ else{const pushed=await pushCloudNow(true);if(!pushed)return false}
+ cloudReady=true;document.getElementById('modalRoot').innerHTML='';setCloudStatus('✓ البيانات محفوظة أونلاين');return true
+}
+function queueCloudSave(){if(!cloudReady||!currentPin())return;clearTimeout(cloudTimer);cloudTimer=setTimeout(()=>pushCloudNow(false),350)}
+async function pushCloudNow(initial=false){
+ if(cloudSaving){cloudSaveQueued=true;return true}cloudSaving=true;setCloudStatus('جاري الحفظ أونلاين...');
+ const snapshot=clone(db),expected=cloudVersion,r=await cloudRequest('POST',{data:snapshot,version:expected});cloudSaving=false;
+ if(r.ok){cloudVersion=Number(r.data.version||expected+1);lastCloudDB=clone(snapshot);setCloudStatus('✓ البيانات محفوظة أونلاين');if(cloudSaveQueued){cloudSaveQueued=false;queueCloudSave()}return true}
+ if(r.status===409){if(r.data.state){db=normalizeDB(r.data.state);cloudVersion=Number(r.data.version||0);lastCloudDB=clone(db);localStorage.setItem(DB_KEY,JSON.stringify(db));renderAll()}setCloudStatus('تم تحديث البيانات من جهاز آخر');alert('تم تعديل البيانات من جهاز آخر. تم تحميل أحدث نسخة.');return false}
+ if(r.status===401){localStorage.removeItem(CLOUD_PIN_KEY);showCloudLogin('رمز الدخول غير صحيح.');return false}
+ setCloudStatus('تعذر الحفظ أونلاين — البيانات باقية على هذا الجهاز');return false
+}
+async function initCloud(){renderAll();if(!currentPin()){showCloudLogin();return}setCloudStatus('جاري تحميل البيانات...');const ok=await loadCloudState();if(!ok){localStorage.removeItem(CLOUD_PIN_KEY);showCloudLogin('رمز الدخول غير صحيح.')}}
+
+function money(n){return (Number(n)||0).toLocaleString('ar-AE',{minimumFractionDigits:0,maximumFractionDigits:2})+' '+db.settings.currency}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function uid(prefix){return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function sellerCode(){return 'S'+String(db.meta.sellerSeq++).padStart(3,'0')}
+function buyerCode(){return 'B'+String(db.meta.buyerSeq++).padStart(3,'0')}
+function supporterCode(){return 'D'+String(db.meta.supporterSeq++).padStart(3,'0')}
+function sellerById(id){return db.sellers.find(x=>x.id===id)}
+function buyerById(id){return db.buyers.find(x=>x.id===id)}
+function supporterById(id){return (db.supporters||[]).find(x=>x.id===id)}
+function headByNo(no){return db.livestock.find(x=>String(x.number)===String(no))}
+function headSupports(h){return Array.isArray(h?.supports)?h.supports:[]}
+function supportAmount(h){return headSupports(h).reduce((a,x)=>a+Number(x.amount||0),0)}
+function headTotal(h){return h?.status==='sold'?Number(h.salePrice||0)+supportAmount(h):0}
+function commission(amount){return (Number(amount)||0)*(Number(db.settings.commission)||0)/100}
+function netToSeller(h){return h.status==='sold'?headTotal(h)-commission(headTotal(h)):0}
+function supportText(h){const xs=headSupports(h);return xs.length?xs.map(x=>`${esc(supporterById(x.supporterId)?.name||'داعم')} (${money(x.amount)})`).join('، '):'—'}
+function statusBadge(s){const map={registered:['مسجل','blue'],sold:['مباع','ok'],unsold:['لم يتم البيع','bad']};const v=map[s]||map.registered;return `<span class="badge ${v[1]}">${v[0]}</span>`}
+function findOrCreateBuyer(name,phone=''){
+ name=String(name||'').trim();phone=String(phone||'').trim();if(!name)return null;
+ let b=db.buyers.find(x=>x.name.trim().toLowerCase()===name.toLowerCase()&&(!phone||!x.phone||x.phone===phone));
+ if(!b){b={id:uid('b_'),code:buyerCode(),name,phone,paid:0};db.buyers.push(b)}else if(phone&&!b.phone)b.phone=phone;return b
+}
+function findOrCreateSupporter(name,phone=''){
+ name=String(name||'').trim();phone=String(phone||'').trim();if(!name)return null;db.supporters=db.supporters||[];
+ let d=db.supporters.find(x=>x.name.trim().toLowerCase()===name.toLowerCase()&&(!phone||!x.phone||x.phone===phone));
+ if(!d){d={id:uid('d_'),code:supporterCode(),name,phone,paid:0};db.supporters.push(d)}else if(phone&&!d.phone)d.phone=phone;return d
+}
+function sellerTotals(sid){
+ const hs=db.livestock.filter(h=>h.sellerId===sid),sold=hs.filter(h=>h.status==='sold');
+ const gross=sold.reduce((a,h)=>a+headTotal(h),0),net=sold.reduce((a,h)=>a+netToSeller(h),0);
+ return {count:hs.length,sold:sold.length,gross,net}
+}
+function buyerTotals(bid){
+ const hs=db.livestock.filter(h=>h.buyerId===bid&&h.status==='sold');
+ const total=hs.reduce((a,h)=>a+Number(h.salePrice||0),0),b=buyerById(bid);
+ return {count:hs.length,total,auctionFee:commission(total),paid:Number(b?.paid||0),due:total-Number(b?.paid||0)}
+}
+function supporterTotals(id){
+ const d=supporterById(id);let total=0,count=0;
+ db.livestock.filter(h=>h.status==='sold').forEach(h=>headSupports(h).forEach(x=>{if(x.supporterId===id){total+=Number(x.amount||0);count++}}));
+ const paid=Number(d?.paid||0);return {count,total,paid,due:total-paid}
+}
+
+const pages=[['dashboard','الرئيسية'],['sellers','الملاك'],['livestock','الرؤوس'],['pens','الشبوك'],['buyers','المشترين'],['auction','شاشة المزاد'],['payments','الحسابات'],['reports','التقارير']];
+document.getElementById('nav').innerHTML=pages.map((p,i)=>`<button data-page="${p[0]}" class="${i===0?'active':''}" onclick="go('${p[0]}')">${p[1]}</button>`).join('');
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='auction')setTimeout(()=>document.getElementById('auctionHead')?.focus(),100)}
+function renderAll(){document.getElementById('auctionTitle').textContent=db.settings.title;renderDashboard();renderSellers();renderLivestock();renderPens();renderBuyers();renderAuction();renderPayments();renderReports()}
+
+function calc(){
+ const sold=db.livestock.filter(x=>x.status==='sold'),gross=sold.reduce((a,h)=>a+headTotal(h),0),comm=sold.reduce((a,h)=>a+commission(headTotal(h)),0);
+ const buyerDue=sold.reduce((a,h)=>a+Number(h.salePrice||0),0),supporterDue=sold.reduce((a,h)=>a+supportAmount(h),0);
+ const buyerPaid=db.buyers.reduce((a,b)=>a+Number(b.paid||0),0),supporterPaid=(db.supporters||[]).reduce((a,d)=>a+Number(d.paid||0),0),sellerPaid=db.sellers.reduce((a,s)=>a+Number(s.paidOut||0),0);
+ return {sold,gross,comm,buyerDue,supporterDue,buyerPaid,supporterPaid,sellerPaid}
+}
+function renderDashboard(){
+ const c=calc(),unsold=db.livestock.filter(x=>x.status==='unsold').length;
+ document.getElementById('dashboard').innerHTML=`
+ <div class="card hero-brand" style="margin-bottom:14px"><img class="hero-logo" src="auction-logo.jpg" onerror="this.style.display='none'"><div><h2 style="margin-bottom:5px">عزبة مملكة النوادر</h2><div class="small">نظام إدارة المزاد — من تسجيل الحلال حتى تسوية الحسابات</div></div></div>
+ <div class="section-head"><div><h2>لوحة التحكم</h2><div class="small">ملخص مباشر للمزاد</div></div></div>
+ <div class="grid g4">
+ <div class="card stat"><span>إجمالي الرؤوس</span><b>${db.livestock.length}</b></div><div class="card stat"><span>تم البيع</span><b>${c.sold.length}</b></div>
+ <div class="card stat"><span>لم يتم البيع</span><b>${unsold}</b></div><div class="card stat"><span>إجمالي المبيعات</span><b>${money(c.gross)}</b></div>
+ <div class="card stat"><span>عمولة المزاد ${db.settings.commission}%</span><b>${money(c.comm)}</b></div><div class="card stat"><span>مستحقات الملاك</span><b>${money(c.gross-c.comm)}</b></div>
+ <div class="card stat"><span>المحصل من المشترين والداعمين</span><b>${money(c.buyerPaid+c.supporterPaid)}</b></div><div class="card stat"><span>المتبقي للتحصيل</span><b>${money((c.buyerDue+c.supporterDue)-(c.buyerPaid+c.supporterPaid))}</b></div>
+ </div>
+ <div class="card" style="margin-top:14px"><h3>اختصارات يوم المزاد</h3><div class="actions"><button class="btn blue" onclick="go('sellers')">تسجيل مالك</button><button class="btn blue" onclick="go('livestock')">تسجيل رأس</button><button class="btn blue" onclick="go('pens')">توزيع الشبوك</button><button class="btn ok" onclick="go('auction')">بدء البيع</button><button class="btn dark" onclick="go('payments')">الحسابات</button></div></div>`
+}
+
+function addSeller(e){e.preventDefault();const f=new FormData(e.target),name=f.get('name').trim(),phone=f.get('phone').trim();if(!name)return alert('اكتب اسم المالك');db.sellers.push({id:uid('s_'),code:sellerCode(),name,phone,paidOut:0});e.target.reset();saveDB()}
+function deleteSeller(id){if(db.livestock.some(h=>h.sellerId===id))return alert('لا يمكن حذف مالك لديه رؤوس مسجلة.');if(confirm('حذف المالك؟')){db.sellers=db.sellers.filter(x=>x.id!==id);saveDB()}}
+function renderSellers(){
+ const rows=db.sellers.map(s=>{const t=sellerTotals(s.id);return `<tr><td><b>${s.code}</b></td><td>${esc(s.name)}</td><td>${esc(s.phone)}</td><td>${t.count}</td><td>${t.sold}</td><td class="money">${money(t.net)}</td><td class="money">${money(s.paidOut||0)}</td><td><button class="btn bad" onclick="deleteSeller('${s.id}')">حذف</button></td></tr>`}).join('');
+ document.getElementById('sellers').innerHTML=`<div class="section-head"><div><h2>الملاك</h2><div class="small">كل مالك يأخذ رقم تلقائي</div></div></div>
+ <div class="card"><form class="form" onsubmit="addSeller(event)"><div><label>اسم المالك</label><input name="name" required></div><div><label>رقم الهاتف</label><input name="phone" inputmode="tel"></div><div class="actions"><button class="btn dark" type="submit">إضافة المالك</button></div></form></div>
+ <div class="card" style="margin-top:14px"><div class="table-wrap"><table><thead><tr><th>رقم المالك</th><th>الاسم</th><th>الهاتف</th><th>الرؤوس</th><th>المباع</th><th>مستحق له</th><th>دُفع له</th><th></th></tr></thead><tbody>${rows||'<tr><td colspan="8">لا يوجد ملاك.</td></tr>'}</tbody></table></div></div>`
+}
+
+function addLivestock(e){e.preventDefault();const f=new FormData(e.target),number=f.get('number').trim(),sellerId=f.get('sellerId'),notes=f.get('notes').trim();if(!number||!sellerId)return alert('أدخل رقم الرأس واختر المالك');if(headByNo(number))return alert('رقم الرأس مستخدم مسبقاً');db.livestock.push({id:uid('h_'),number,sellerId,pen:null,notes,status:'registered',buyerId:null,salePrice:0,soldAt:null,supports:[]});e.target.reset();saveDB()}
+function deleteHead(id){const h=db.livestock.find(x=>x.id===id);if(!h)return;if(h.status==='sold')return alert('لا يمكن حذف رأس مباع. صحح عملية البيع أولاً.');if(confirm('حذف الرأس '+h.number+'؟')){db.livestock=db.livestock.filter(x=>x.id!==id);saveDB()}}
+function renderLivestock(){
+ const opts=db.sellers.map(s=>`<option value="${s.id}">${s.code} — ${esc(s.name)}</option>`).join('');
+ const rows=db.livestock.map(h=>{const s=sellerById(h.sellerId);return `<tr><td><b>${esc(h.number)}</b></td><td>${s?esc(s.code+' — '+s.name):'—'}</td><td>${h.pen||'—'}</td><td>${statusBadge(h.status)}</td><td>${esc(h.notes||'')}</td><td><button class="btn" onclick="printTag('${h.id}')">طباعة رقم</button> <button class="btn bad" onclick="deleteHead('${h.id}')">حذف</button></td></tr>`}).join('');
+ document.getElementById('livestock').innerHTML=`<div class="section-head"><div><h2>تسجيل الرؤوس</h2><div class="small">كل رأس له رقم فريد مربوط بمالكه</div></div></div>
+ <div class="card"><form class="form" onsubmit="addLivestock(event)"><div><label>رقم الرأس</label><input name="number" required inputmode="numeric"></div><div><label>المالك</label><select name="sellerId" required><option value="">اختر المالك</option>${opts}</select></div><div><label>ملاحظات</label><input name="notes"></div><div class="actions"><button class="btn dark" type="submit">إضافة الرأس</button></div></form></div>
+ <div class="card" style="margin-top:14px"><div class="table-wrap"><table><thead><tr><th>رقم الرأس</th><th>المالك</th><th>الشبك</th><th>الحالة</th><th>ملاحظات</th><th></th></tr></thead><tbody>${rows||'<tr><td colspan="6">لا توجد رؤوس.</td></tr>'}</tbody></table></div></div>`
+}
+function printTag(id){const h=db.livestock.find(x=>x.id===id),s=sellerById(h.sellerId);if(!h)return;const w=window.open('','_blank','width=500,height=500');w.document.write(`<html lang="ar" dir="rtl"><body style="font-family:Arial;text-align:center;padding:30px"><div style="border:3px solid #111;border-radius:20px;padding:25px"><div style="font-size:18px">عزبة مملكة النوادر</div><div style="font-size:80px;font-weight:900;margin:20px">${esc(h.number)}</div><div>الشبك: ${h.pen||'—'}</div><div>المالك: ${esc(s?.name||'—')}</div></div><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()}
+
+function moveHead(e){
+ e.preventDefault(); const f=new FormData(e.target), no=f.get('number').trim(), pen=Number(f.get('pen'));
+ const h=headByNo(no); if(!h) return alert('رقم الرأس غير موجود');
+ if(pen<1||pen>db.settings.pens) return alert('رقم الشبك غير صحيح');
+ h.pen=pen; e.target.reset(); saveDB();
+}
+function showPen(n){
+ const heads=db.livestock.filter(h=>Number(h.pen)===Number(n));
+ const rows=heads.map(h=>{
+   const buyer=h.status==='sold'?buyerById(h.buyerId):null;
+   return `<tr><td><b>${esc(h.number)}</b></td><td>${esc(sellerById(h.sellerId)?.name||'-')}</td><td>${statusBadge(h.status)}</td><td>${h.status==='sold'?esc(buyer?.name||'-'):'—'}</td></tr>`;
+ }).join('');
+ showModal(`<h3>الشبك ${n}</h3><div class="table-wrap"><table><thead><tr><th>الرأس</th><th>المالك</th><th>الحالة</th><th>المشتري</th></tr></thead><tbody>${rows||'<tr><td colspan="4">الشبك فارغ.</td></tr>'}</tbody></table></div>`);
+}
+function renderPens(){
+ const cards=Array.from({length:db.settings.pens},(_,i)=>i+1).map(n=>{
+   const hs=db.livestock.filter(h=>Number(h.pen)===n), sold=hs.filter(h=>h.status==='sold').length;
+   return `<div class="card pen" onclick="showPen(${n})"><div class="num">شبك ${n}</div><small>${hs.length} رأس — ${sold} مباع</small></div>`;
+ }).join('');
+ document.getElementById('pens').innerHTML=`
+ <div class="section-head"><div><h2>الشبوك</h2><div class="small">وزّع أي رأس على أي شبك، حتى لو كان الشبك مكس</div></div></div>
+ <div class="card"><form class="form" onsubmit="moveHead(event)">
+  <div><label>رقم الرأس</label><input name="number" required placeholder="مثال: 101"></div>
+  <div><label>رقم الشبك</label><select name="pen">${Array.from({length:db.settings.pens},(_,i)=>`<option value="${i+1}">شبك ${i+1}</option>`).join('')}</select></div>
+  <div class="actions"><button class="btn dark" type="submit">توزيع / نقل</button></div>
+ </form></div>
+ <div class="pen-grid" style="margin-top:14px">${cards}</div>`;
+}
+
+function addBuyer(e){e.preventDefault();const f=new FormData(e.target),name=f.get('name').trim(),phone=f.get('phone').trim();if(!name)return alert('اكتب اسم المشتري');if(db.buyers.some(x=>x.name.trim().toLowerCase()===name.toLowerCase()))return alert('المشتري موجود مسبقاً');db.buyers.push({id:uid('b_'),code:buyerCode(),name,phone,paid:0});e.target.reset();saveDB()}
+function deleteBuyer(id){if(db.livestock.some(h=>h.buyerId===id))return alert('لا يمكن حذف مشتري لديه مشتريات.');if(confirm('حذف المشتري؟')){db.buyers=db.buyers.filter(x=>x.id!==id);saveDB()}}
+function renderBuyers(){
+ const rows=db.buyers.map(b=>{const t=buyerTotals(b.id);return `<tr><td><b>${b.code}</b></td><td>${esc(b.name)}</td><td>${esc(b.phone)}</td><td>${t.count}</td><td class="money">${money(t.total)}</td><td class="money">${money(t.auctionFee)}</td><td class="money">${money(t.paid)}</td><td class="money">${money(t.due)}</td><td><button class="btn blue" onclick="printBuyerInvoice('${b.id}')">فاتورة</button> <button class="btn bad" onclick="deleteBuyer('${b.id}')">حذف</button></td></tr>`}).join('');
+ document.getElementById('buyers').innerHTML=`<div class="section-head"><div><h2>المشترين</h2><div class="small">كل مشتري يأخذ رقم مزايد تلقائي</div></div></div>
+ <div class="card"><form class="form" onsubmit="addBuyer(event)"><div><label>اسم المشتري</label><input name="name" required></div><div><label>رقم الهاتف</label><input name="phone" inputmode="tel"></div><div class="actions"><button class="btn dark" type="submit">إضافة المشتري</button></div></form></div>
+ <div class="card" style="margin-top:14px"><div class="table-wrap"><table><thead><tr><th>رقم المزايد</th><th>الاسم</th><th>الهاتف</th><th>المشتريات</th><th>الإجمالي</th><th>نسبة المزاد</th><th>دفع</th><th>المتبقي</th><th></th></tr></thead><tbody>${rows||'<tr><td colspan="9">لا يوجد مشترون.</td></tr>'}</tbody></table></div></div>`
+}
+
+let auctionCurrent=null;
+function auctionLookup(){
+ const v=document.getElementById('auctionHead').value.trim(); const h=headByNo(v); auctionCurrent=h?.id||null;
+ renderAuctionResult(h);
+}
+function renderAuction(){
+ document.getElementById('auction').innerHTML=`
+ <div class="auction">
+  <div class="section-head"><div><h2>شاشة المزاد</h2><div class="small">اكتب رقم الرأس ثم سجل النتيجة</div></div></div>
+  <div class="card">
+   <div class="lookup"><input id="auctionHead" placeholder="اكتب رقم الرأس..." inputmode="numeric" onkeydown="if(event.key==='Enter'){event.preventDefault();auctionLookup()}"><button class="btn dark" onclick="auctionLookup()">بحث</button></div>
+   <div id="auctionResult" class="auction-result"></div>
+  </div>
+ </div>`;
+}
+function renderAuctionResult(h){
+ const box=document.getElementById('auctionResult'); if(!box)return;
+ if(!h){box.innerHTML='<div class="danger-note">رقم الرأس غير موجود.</div>';return}
+ const s=sellerById(h.sellerId), b=buyerById(h.buyerId);
+ box.innerHTML=`
+ <div class="kv"><span>رقم الرأس</span><b class="big">${esc(h.number)}</b></div>
+ <div class="kv"><span>المالك</span><b>${esc(s?.code||'')} — ${esc(s?.name||'-')}</b></div>
+ <div class="kv"><span>الشبك</span><b>${h.pen||'غير موزع'}</b></div>
+ <div class="kv"><span>الحالة</span><div>${statusBadge(h.status)}</div></div>
+ ${h.status==='sold'?`
+ <div class="kv"><span>المشتري</span><b>${esc(b?.code||'')} — ${esc(b?.name||'-')}</b></div>
+ <div class="kv"><span>سعر المزايدة</span><b class="money">${money(h.salePrice)}</b></div>
+ <div class="kv"><span>الدعم</span><b>${supportText(h)}</b></div>
+ <div class="kv"><span>إجمالي الدعم</span><b class="money">${money(supportAmount(h))}</b></div>
+ <div class="kv"><span>إجمالي الصفقة</span><b class="money">${money(headTotal(h))}</b></div>
+ <div class="kv"><span>نسبة المزاد ${db.settings.commission}%</span><b class="money">${money(commission(headTotal(h)))}</b></div>
+ `:''}
+ <div class="actions no-print" style="margin-top:14px">
+  ${h.status!=='sold'?`<button class="btn ok" onclick="saleDialog('${h.id}')">تم البيع</button><button class="btn bad" onclick="markUnsold('${h.id}')">لم يتم البيع</button>`:
+  `<button class="btn blue" onclick="addSupportDialog('${h.id}')">إضافة دعم</button><button class="btn warn" onclick="undoSale('${h.id}')">تصحيح / إلغاء البيع</button>`}
+ </div>`;
+}
+function saleDialog(id){
+ const h=db.livestock.find(x=>x.id===id); if(!h)return;
+ const opts=db.buyers.map(b=>`<option value="${b.id}">${b.code} — ${esc(b.name)}</option>`).join('');
+ showModal(`<h3>تسجيل بيع الرأس ${esc(h.number)}</h3>
+  <form onsubmit="confirmSale(event,'${h.id}')">
+   <div class="notice"><b>المشتري:</b> تقدر تختار مشتري مسجل من القائمة، أو تكتب اسم مشتري جديد وقت البيع والنظام بيسجله تلقائياً.</div>
+   <div style="margin-bottom:10px"><label>مشتري مسجل</label><select name="buyerId"><option value="">— اختر إذا كان مسجل —</option>${opts}</select></div>
+   <div class="split">
+    <div><label>اسم مشتري جديد</label><input name="buyerName" placeholder="اكتب الاسم إذا مب مسجل"></div>
+    <div><label>هاتف المشتري</label><input name="buyerPhone" inputmode="tel" placeholder="اختياري"></div>
+   </div>
+   <div style="margin-top:10px;margin-bottom:14px"><label>سعر المزايدة على المشتري</label><input name="price" type="number" min="0" step="0.01" required inputmode="decimal"></div>
+   <div class="notice"><b>الدعم اختياري:</b> إذا البايع رفض السعر وجاء داعم زاد مبلغ، سجله هنا. الداعم يدفع مبلغ الدعم فقط، والنسبة تُحسب على إجمالي الصفقة كامل.</div>
+   <div class="split">
+    <div><label>اسم الداعم</label><input name="supporterName" placeholder="اختياري"></div>
+    <div><label>هاتف الداعم</label><input name="supporterPhone" inputmode="tel" placeholder="اختياري"></div>
+   </div>
+   <div style="margin-top:10px;margin-bottom:14px"><label>مبلغ الدعم</label><input name="supportAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0"></div>
+   <div class="actions"><button class="btn ok" type="submit">تأكيد البيع</button><button class="btn" type="button" onclick="closeModal()">إلغاء</button></div>
+  </form>`);
+}
+function confirmSale(e,id){
+ e.preventDefault(); const f=new FormData(e.target), h=db.livestock.find(x=>x.id===id);
+ const selectedBuyerId=String(f.get('buyerId')||'').trim();
+ const buyerName=String(f.get('buyerName')||'').trim();
+ const buyerPhone=String(f.get('buyerPhone')||'').trim();
+ const price=Number(f.get('price'));
+ let b=null;
+ if(buyerName){
+   b=findOrCreateBuyer(buyerName,buyerPhone);
+ }else if(selectedBuyerId){
+   b=buyerById(selectedBuyerId);
+   if(b && buyerPhone && !b.phone) b.phone=buyerPhone;
+ }
+ const supporterName=String(f.get('supporterName')||'').trim();
+ const supporterPhone=String(f.get('supporterPhone')||'').trim();
+ const extra=Number(f.get('supportAmount')||0);
+ if(!b) return alert('اختر مشتري مسجل أو اكتب اسم المشتري');
+ if(price<0||extra<0) return alert('تحقق من البيانات');
+ if(extra>0&&!supporterName) return alert('اكتب اسم الداعم');
+ const total=price+extra;
+ if(!confirm(`تأكيد بيع الرأس ${h.number} إلى ${b.code} — ${b.name}\nسعر المزايدة: ${money(price)}${extra>0?`\nالدعم: ${money(extra)}\nإجمالي الصفقة: ${money(total)}`:''}؟`)) return;
+ h.status='sold';h.buyerId=b.id;h.salePrice=price;h.soldAt=new Date().toISOString();h.supports=[];
+ if(extra>0){
+   const d=findOrCreateSupporter(supporterName,supporterPhone);
+   h.supports.push({id:uid('sup_'),supporterId:d.id,amount:extra,createdAt:new Date().toISOString()});
+ }
+ closeModal();saveDB();setTimeout(()=>{document.getElementById('auctionHead').value='';document.getElementById('auctionHead').focus()},50);
+}
+function markUnsold(id){
+ const h=db.livestock.find(x=>x.id===id); if(confirm('تسجيل الرأس '+h.number+' كـ لم يتم البيع؟')){h.status='unsold';h.buyerId=null;h.salePrice=0;h.soldAt=null;h.supports=[];saveDB();}
+}
+function undoSale(id){
+ const h=db.livestock.find(x=>x.id===id);
+ if(confirm('إلغاء نتيجة البيع وإرجاع الرأس إلى حالة مسجل؟')){h.status='registered';h.buyerId=null;h.salePrice=0;h.soldAt=null;h.supports=[];saveDB();}
+}
+function addSupportDialog(id){
+ const h=db.livestock.find(x=>x.id===id); if(!h||h.status!=='sold')return;
+ showModal(`<h3>إضافة دعم للرأس ${esc(h.number)}</h3>
+  <div class="notice">سعر المزايدة الحالي: <b>${money(h.salePrice)}</b> — الدعم الحالي: <b>${money(supportAmount(h))}</b></div>
+  <form onsubmit="confirmSupport(event,'${h.id}')">
+   <div class="split">
+    <div><label>اسم الداعم</label><input name="name" required></div>
+    <div><label>رقم الهاتف</label><input name="phone" inputmode="tel"></div>
+   </div>
+   <div style="margin-top:10px"><label>مبلغ الدعم</label><input name="amount" type="number" min="0.01" step="0.01" inputmode="decimal" required></div>
+   <div class="actions" style="margin-top:14px"><button class="btn blue" type="submit">إضافة الدعم</button><button class="btn" type="button" onclick="closeModal()">إلغاء</button></div>
+  </form>`);
+}
+function confirmSupport(e,id){
+ e.preventDefault(); const f=new FormData(e.target),h=db.livestock.find(x=>x.id===id);
+ const name=String(f.get('name')||'').trim(),phone=String(f.get('phone')||'').trim(),amount=Number(f.get('amount')||0);
+ if(!name||!(amount>0))return alert('تحقق من اسم الداعم ومبلغ الدعم');
+ const d=findOrCreateSupporter(name,phone);
+ h.supports=h.supports||[];
+ h.supports.push({id:uid('sup_'),supporterId:d.id,amount,createdAt:new Date().toISOString()});
+ closeModal();saveDB();
+}
+function addSupporterPayment(id){
+ const d=supporterById(id),t=supporterTotals(id);
+ const v=prompt(`المتبقي على الداعم ${d.name}: ${money(t.due)}\nأدخل مبلغ الدفعة:`);
+ if(v===null)return; const n=Number(v); if(!(n>0))return alert('مبلغ غير صحيح');
+ if(n>t.due && !confirm(`المبلغ أكبر من المتبقي (${money(t.due)}). تسجيله رغم ذلك؟`))return;
+ d.paid=Number(d.paid||0)+n; saveDB();
+}
+
+function addBuyerPayment(id){const b=buyerById(id),t=buyerTotals(id),v=prompt(`المتبقي على ${b.name}: ${money(t.due)}\nأدخل مبلغ الدفعة:`);if(v===null)return;const n=Number(v);if(!(n>0))return alert('مبلغ غير صحيح');b.paid=Number(b.paid||0)+n;saveDB()}
+function addSupporterPayment(id){const d=supporterById(id),t=supporterTotals(id),v=prompt(`المتبقي على الداعم ${d.name}: ${money(t.due)}\nأدخل مبلغ الدفعة:`);if(v===null)return;const n=Number(v);if(!(n>0))return alert('مبلغ غير صحيح');d.paid=Number(d.paid||0)+n;saveDB()}
+function addSellerPayout(id){const s=sellerById(id),t=sellerTotals(id),due=t.net-Number(s.paidOut||0),v=prompt(`المتبقي للمالك ${s.name}: ${money(due)}\nأدخل المبلغ المدفوع له:`);if(v===null)return;const n=Number(v);if(!(n>0))return alert('مبلغ غير صحيح');s.paidOut=Number(s.paidOut||0)+n;saveDB()}
+function renderPayments(){
+ const buyerRows=db.buyers.map(b=>{const t=buyerTotals(b.id);return `<tr><td>${b.code} — ${esc(b.name)}</td><td>${t.count}</td><td class="money">${money(t.total)}</td><td class="money">${money(t.auctionFee)} (${db.settings.commission}%)</td><td class="money">${money(t.paid)}</td><td class="money">${money(t.due)}</td><td><button class="btn dark" onclick="printBuyerInvoice('${b.id}')">طباعة فاتورة</button> <button class="btn blue" onclick="addBuyerPayment('${b.id}')">تسجيل دفعة</button></td></tr>`}).join('');
+ const supporterRows=(db.supporters||[]).map(d=>{const t=supporterTotals(d.id);return `<tr><td>${d.code} — ${esc(d.name)}</td><td>${t.count}</td><td class="money">${money(t.total)}</td><td class="money">${money(t.paid)}</td><td class="money">${money(t.due)}</td><td><button class="btn blue" onclick="addSupporterPayment('${d.id}')">تسجيل دفعة</button></td></tr>`}).join('');
+ const sellerRows=db.sellers.map(s=>{const t=sellerTotals(s.id),paid=Number(s.paidOut||0),due=t.net-paid;return `<tr><td>${s.code} — ${esc(s.name)}</td><td>${t.sold}</td><td class="money">${money(t.gross)}</td><td class="money">${money(commission(t.gross))} (${db.settings.commission}%)</td><td class="money">${money(t.net)}</td><td class="money">${money(paid)}</td><td class="money">${money(due)}</td><td><button class="btn ok" onclick="addSellerPayout('${s.id}')">تسجيل صرف</button></td></tr>`}).join('');
+ document.getElementById('payments').innerHTML=`<div class="section-head"><div><h2>الحسابات</h2><div class="small">تفاصيل تحصيل المشترين والداعمين وتسوية مستحقات الملاك.</div></div></div>
+ <div class="card"><h3>المشترون — المبالغ المطلوب تحصيلها</h3><div class="table-wrap"><table><thead><tr><th>المشتري</th><th>عدد الرؤوس</th><th>إجمالي المشتريات</th><th>نسبة المزاد</th><th>دفع</th><th>المتبقي عليه</th><th></th></tr></thead><tbody>${buyerRows||'<tr><td colspan="7">لا توجد بيانات.</td></tr>'}</tbody></table></div></div>
+ <div class="card" style="margin-top:14px"><h3>الداعمون — مبالغ الدعم</h3><div class="table-wrap"><table><thead><tr><th>الداعم</th><th>مرات الدعم</th><th>إجمالي الدعم</th><th>دفع</th><th>المتبقي عليه</th><th></th></tr></thead><tbody>${supporterRows||'<tr><td colspan="6">لا يوجد دعم.</td></tr>'}</tbody></table></div></div>
+ <div class="card" style="margin-top:14px"><h3>الملاك — المبالغ المطلوب دفعها</h3><div class="table-wrap"><table><thead><tr><th>المالك</th><th>المباع</th><th>إجمالي البيع + الدعم</th><th>نسبة المزاد</th><th>صافي مستحقه</th><th>دُفع له</th><th>المتبقي له</th><th></th></tr></thead><tbody>${sellerRows||'<tr><td colspan="8">لا توجد بيانات.</td></tr>'}</tbody></table></div></div>`
+}
+
+function sellerReportHTML(id){
+ const s=sellerById(id);if(!s)return '<div class="danger-note">البائع غير موجود.</div>';const hs=db.livestock.filter(h=>h.sellerId===id),t=sellerTotals(id),paid=Number(s.paidOut||0),due=t.net-paid;
+ const rows=hs.map(h=>`<tr><td><b>${esc(h.number)}</b></td><td>${h.pen||'—'}</td><td>${statusBadge(h.status)}</td><td>${h.status==='sold'?esc(buyerById(h.buyerId)?.name||'—'):'—'}</td><td class="money">${h.status==='sold'?money(h.salePrice):'—'}</td><td>${h.status==='sold'?supportText(h):'—'}</td><td class="money">${h.status==='sold'?money(headTotal(h)):'—'}</td><td class="money">${h.status==='sold'?money(commission(headTotal(h))):'—'}</td><td class="money">${h.status==='sold'?money(netToSeller(h)):'—'}</td></tr>`).join('');
+ return `<h2>تقرير البائع — ${s.code} — ${esc(s.name)}</h2><div class="grid g3" style="margin-bottom:14px"><div class="card stat"><span>إجمالي البيع والدعم</span><b>${money(t.gross)}</b></div><div class="card stat"><span>نسبة المزاد ${db.settings.commission}%</span><b>${money(commission(t.gross))}</b></div><div class="card stat"><span>صافي المستحق</span><b>${money(t.net)}</b></div></div><div class="table-wrap"><table><thead><tr><th>الرأس</th><th>الشبك</th><th>الحالة</th><th>المشتري</th><th>المزايدة</th><th>الدعم</th><th>الإجمالي</th><th>نسبة المزاد</th><th>صافي البائع</th></tr></thead><tbody>${rows||'<tr><td colspan="9">لا توجد رؤوس.</td></tr>'}</tbody></table></div><div class="small" style="margin-top:10px">دُفع للبائع: ${money(paid)} — المتبقي: ${money(due)}</div>`
+}
+function buyerReportHTML(id){
+ const b=buyerById(id);if(!b)return '<div class="danger-note">المشتري غير موجود.</div>';const hs=db.livestock.filter(h=>h.status==='sold'&&h.buyerId===id),t=buyerTotals(id);
+ const rows=hs.map(h=>`<tr><td><b>${esc(h.number)}</b></td><td>${h.pen||'—'}</td><td>${esc(sellerById(h.sellerId)?.name||'—')}</td><td class="money">${money(h.salePrice)}</td><td class="money">${money(commission(h.salePrice))}</td></tr>`).join('');
+ return `<h2>تقرير المشتري — ${b.code} — ${esc(b.name)}</h2><div class="grid g3" style="margin-bottom:14px"><div class="card stat"><span>إجمالي المشتريات</span><b>${money(t.total)}</b></div><div class="card stat"><span>نسبة المزاد ${db.settings.commission}%</span><b>${money(t.auctionFee)}</b></div><div class="card stat"><span>المتبقي عليه</span><b>${money(t.due)}</b></div></div><div class="table-wrap"><table><thead><tr><th>رقم الحلال</th><th>الشبك</th><th>البائع</th><th>سعر الشراء</th><th>نسبة المزاد</th></tr></thead><tbody>${rows||'<tr><td colspan="5">لا توجد مشتريات.</td></tr>'}</tbody></table></div>`
+}
+function supporterReportHTML(id){
+ const d=supporterById(id);if(!d)return '<div class="danger-note">الداعم غير موجود.</div>';const t=supporterTotals(id),rows=[];
+ db.livestock.filter(h=>h.status==='sold').forEach(h=>headSupports(h).forEach(x=>{if(x.supporterId===id)rows.push(`<tr><td><b>${esc(h.number)}</b></td><td>${h.pen||'—'}</td><td>${esc(sellerById(h.sellerId)?.name||'—')}</td><td>${esc(buyerById(h.buyerId)?.name||'—')}</td><td class="money">${money(x.amount)}</td></tr>`)}));
+ return `<h2>تقرير الداعم — ${d.code} — ${esc(d.name)}</h2><div class="grid g3" style="margin-bottom:14px"><div class="card stat"><span>إجمالي الدعم</span><b>${money(t.total)}</b></div><div class="card stat"><span>المدفوع</span><b>${money(t.paid)}</b></div><div class="card stat"><span>المتبقي عليه</span><b>${money(t.due)}</b></div></div><div class="table-wrap"><table><thead><tr><th>رقم الحلال</th><th>الشبك</th><th>البائع</th><th>المشتري</th><th>مبلغ الدعم</th></tr></thead><tbody>${rows.join('')||'<tr><td colspan="5">لا يوجد دعم.</td></tr>'}</tbody></table></div>`
+}
+function openPersonReport(type,id){if(!id)return alert('اختر الاسم أولاً');const html=type==='seller'?sellerReportHTML(id):type==='buyer'?buyerReportHTML(id):supporterReportHTML(id);showModal(`<div class="section-head"><h3>التقرير المستقل</h3><div class="actions"><button class="btn dark" onclick="printPersonReport('${type}','${id}')">طباعة التقرير</button>${type==='buyer'?`<button class="btn blue" onclick="printBuyerInvoice('${id}')">طباعة فاتورة</button>`:''}<button class="btn" onclick="closeModal()">إغلاق</button></div></div>${html}`)}
+function printPersonReport(type,id){
+ const body=type==='seller'?sellerReportHTML(id):type==='buyer'?buyerReportHTML(id):supporterReportHTML(id),logo=document.querySelector('.brand-logo')?.src||'';
+ const w=window.open('','_blank');if(!w)return alert('اسمح بفتح النوافذ المنبثقة للطباعة');
+ w.document.write(`<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>تقرير المزاد</title><style>body{font-family:Tahoma,Arial,sans-serif;padding:24px;color:#111}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid #ddd;border-radius:12px;padding:12px}.stat span{display:block;color:#666;font-size:12px}.stat b{font-size:20px}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;padding:8px;text-align:right}th{background:#f5f5f5}.money{font-weight:bold}.small{font-size:12px;color:#666}@media print{body{padding:0}}</style></head><body><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="${logo}" style="width:72px;height:72px;border-radius:50%;object-fit:cover"><div><b>عزبة مملكة النوادر</b><div class="small">تقرير مستقل</div></div></div>${body}</body></html>`);w.document.close();setTimeout(()=>w.print(),300)
+}
+
+function buyerInvoiceHTML(id){
+ const b=buyerById(id);if(!b)return '<div class="danger-note">المشتري غير موجود.</div>';
+ const hs=db.livestock.filter(h=>h.status==='sold'&&h.buyerId===id),total=hs.reduce((a,h)=>a+Number(h.salePrice||0),0),auctionFee=hs.reduce((a,h)=>a+commission(Number(h.salePrice||0)),0),sellersAmount=total-auctionFee;
+ const rows=hs.map((h,i)=>{const price=Number(h.salePrice||0),fee=commission(price);return `<tr><td>${i+1}</td><td><b>${esc(h.number)}</b></td><td>${h.pen||'—'}</td><td>${esc(sellerById(h.sellerId)?.name||'—')}</td><td class="money">${money(price)}</td><td class="money">${money(fee)}</td><td class="money">${money(price-fee)}</td></tr>`}).join('');
+ const today=new Date().toLocaleDateString('ar-AE'),invoiceNo='INV-'+b.code+'-'+new Date().toISOString().slice(0,10).replace(/-/g,'');
+ return `<div class="invoice"><div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:18px"><div><h2 style="margin:0 0 6px">فاتورة مشتري</h2><div class="small">رقم الفاتورة: ${invoiceNo}</div><div class="small">التاريخ: ${today}</div></div><div style="text-align:left"><b>${b.code} — ${esc(b.name)}</b><div class="small">${esc(b.phone||'')}</div></div></div>
+ <div class="table-wrap"><table><thead><tr><th>#</th><th>رقم الحلال</th><th>الشبك</th><th>البائع</th><th>سعر الشراء</th><th>نسبة المزاد ${db.settings.commission}%</th><th>المبلغ للبائع</th></tr></thead><tbody>${rows||'<tr><td colspan="7">لا توجد مشتريات.</td></tr>'}</tbody></table></div>
+ <div class="invoice-summary"><div class="card stat"><span>إجمالي المشتريات</span><b>${money(total)}</b></div><div class="card stat"><span>نسبة المزاد ${db.settings.commission}%</span><b>${money(auctionFee)}</b></div><div class="card stat"><span>إجمالي المبلغ للبائعين</span><b>${money(sellersAmount)}</b></div></div>
+ <div style="display:flex;justify-content:space-between;gap:30px;margin-top:45px"><div style="width:45%;border-top:1px solid #aaa;padding-top:8px">توقيع المشتري</div><div style="width:45%;border-top:1px solid #aaa;padding-top:8px">اعتماد إدارة المزاد</div></div></div>`
+}
+function printBuyerInvoice(id){
+ if(!id)return alert('اختر المشتري أولاً');const body=buyerInvoiceHTML(id),logo=document.querySelector('.brand-logo')?.src||'',w=window.open('','_blank','width=1050,height=850');if(!w)return alert('اسمح بفتح النوافذ المنبثقة للطباعة');
+ w.document.write(`<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>فاتورة مشتري</title><style>@page{size:A4;margin:12mm}body{font-family:Tahoma,Arial,sans-serif;color:#111}.small{font-size:12px;color:#666}.invoice-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.card{border:1px solid #ddd;border-radius:12px;padding:12px}.stat span{display:block;color:#666;font-size:12px}.stat b{font-size:20px}.table-wrap{overflow:visible}table{width:100%;border-collapse:collapse}th,td{border:1px solid #ddd;padding:8px;text-align:right;font-size:12px}th{background:#f5f5f5}.money{font-weight:bold}</style></head><body><div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><img src="${logo}" style="width:72px;height:72px;border-radius:50%;object-fit:cover"><div><b style="font-size:20px">عزبة مملكة النوادر</b><div class="small">فاتورة مشتري</div></div></div>${body}</body></html>`);w.document.close();setTimeout(()=>w.print(),350)
+}
+
+function renderReports(){
+ const buyerRank=db.buyers.map(b=>({b,...buyerTotals(b.id)})).sort((a,b)=>b.total-a.total);
+ const br=buyerRank.map((x,i)=>`<tr><td>${i+1}</td><td>${x.b.code} — ${esc(x.b.name)}</td><td>${x.count}</td><td class="money">${money(x.total)}</td><td class="money">${money(x.auctionFee)} <span class="small">(${db.settings.commission}%)</span></td><td class="money">${money(x.due)}</td></tr>`).join('');
+ const sr=db.sellers.map(s=>({s,...sellerTotals(s.id)})).sort((a,b)=>b.gross-a.gross).map(x=>`<tr><td>${x.s.code} — ${esc(x.s.name)}</td><td>${x.count}</td><td>${x.sold}</td><td class="money">${money(x.gross)}</td><td class="money">${money(commission(x.gross))} <span class="small">(${db.settings.commission}%)</span></td><td class="money">${money(x.net)}</td></tr>`).join('');
+ const sellerOpts=db.sellers.map(x=>`<option value="${x.id}">${x.code} — ${esc(x.name)}</option>`).join(''),buyerOpts=db.buyers.map(x=>`<option value="${x.id}">${x.code} — ${esc(x.name)}</option>`).join(''),supporterOpts=(db.supporters||[]).map(x=>`<option value="${x.id}">${x.code} — ${esc(x.name)}</option>`).join('');
+ document.getElementById('reports').innerHTML=`<div class="report-brand"><img src="auction-logo.jpg" onerror="this.style.display='none'"><div><h2 style="margin:0">عزبة مملكة النوادر</h2><div class="small">التقارير</div></div></div>
+ <div class="section-head"><div><h2>تقارير مستقلة لكل شخص</h2><div class="small">كل تقرير يطلع بروحه بدون تفاصيل إدارة المزاد.</div></div></div>
+ <div class="grid g3 no-print"><div class="card"><h3>تقرير بائع</h3><select id="sellerReportSelect"><option value="">اختر البائع</option>${sellerOpts}</select><button class="btn dark" style="margin-top:10px" onclick="openPersonReport('seller',document.getElementById('sellerReportSelect').value)">عرض التقرير</button></div>
+ <div class="card"><h3>تقرير مشتري</h3><select id="buyerReportSelect"><option value="">اختر المشتري</option>${buyerOpts}</select><div class="actions" style="margin-top:10px"><button class="btn dark" onclick="openPersonReport('buyer',document.getElementById('buyerReportSelect').value)">عرض التقرير</button><button class="btn blue" onclick="printBuyerInvoice(document.getElementById('buyerReportSelect').value)">طباعة فاتورة</button></div></div>
+ <div class="card"><h3>تقرير داعم</h3><select id="supporterReportSelect"><option value="">اختر الداعم</option>${supporterOpts}</select><button class="btn dark" style="margin-top:10px" onclick="openPersonReport('supporter',document.getElementById('supporterReportSelect').value)">عرض التقرير</button></div></div>
+ <div class="section-head" style="margin-top:18px"><div><h2>تقرير إدارة المزاد</h2></div><div class="actions no-print"><button class="btn dark" onclick="window.print()">طباعة تقرير الإدارة</button><button class="btn" onclick="exportCSV()">تصدير CSV</button></div></div>
+ <div class="card"><h3>المشتريات</h3><div class="table-wrap"><table><thead><tr><th>#</th><th>المشتري</th><th>الرؤوس</th><th>إجمالي المشتريات</th><th>نسبة المزاد</th><th>المتبقي عليه</th></tr></thead><tbody>${br||'<tr><td colspan="6">لا توجد مبيعات.</td></tr>'}</tbody></table></div></div>
+ <div class="card" style="margin-top:14px"><h3>ملخص الملاك</h3><div class="table-wrap"><table><thead><tr><th>المالك</th><th>الرؤوس</th><th>المباع</th><th>إجمالي البيع + الدعم</th><th>نسبة المزاد</th><th>صافي المستحق</th></tr></thead><tbody>${sr||'<tr><td colspan="6">لا توجد بيانات.</td></tr>'}</tbody></table></div></div>`
+}
+
+function showSettings(){showModal(`<h3>إعدادات المزاد</h3><form onsubmit="saveSettings(event)"><div style="margin-bottom:10px"><label>اسم المزاد</label><input name="title" value="${esc(db.settings.title)}"></div><div class="split"><div><label>نسبة العمولة %</label><input name="commission" type="number" min="0" max="100" step="0.1" value="${db.settings.commission}"></div><div><label>عدد الشبوك</label><input name="pens" type="number" min="1" max="100" value="${db.settings.pens}"></div></div><div style="margin-top:10px"><label>العملة</label><input name="currency" value="${esc(db.settings.currency)}"></div><div class="actions" style="margin-top:14px"><button class="btn dark" type="submit">حفظ</button><button class="btn" type="button" onclick="closeModal()">إلغاء</button></div></form>`)}
+function saveSettings(e){e.preventDefault();const f=new FormData(e.target);db.settings.title=f.get('title').trim()||'مزاد عزبة مملكة النوادر';db.settings.commission=Number(f.get('commission'))||0;db.settings.pens=Math.max(1,Number(f.get('pens'))||12);db.settings.currency=f.get('currency').trim()||'د.إ';closeModal();saveDB()}
+function showModal(html){document.getElementById('modalRoot').innerHTML=`<div class="modal" onclick="if(event.target===this)closeModal()"><div class="modal-box">${html}</div></div>`}
+function closeModal(){document.getElementById('modalRoot').innerHTML=''}
+
+function exportBackup(){const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='auction-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href)}
+document.getElementById('importFile').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.sellers||!x.livestock||!x.buyers)throw new Error();if(confirm('سيتم استبدال البيانات الحالية بالنسخة الاحتياطية. متابعة؟')){db=normalizeDB(x);saveDB();alert('تم الاستيراد بنجاح')}}catch(err){alert('ملف النسخة الاحتياطية غير صالح')}};r.readAsText(file);e.target.value=''});
+function exportCSV(){
+ const rows=[['رقم الرأس','المالك','الشبك','الحالة','المشتري','سعر المزايدة','الداعم/الداعمين','إجمالي الدعم','إجمالي الصفقة','نسبة المزاد','صافي المالك']];
+ db.livestock.forEach(h=>{const s=sellerById(h.sellerId),b=buyerById(h.buyerId);rows.push([h.number,s?.name||'',h.pen||'',h.status==='sold'?'مباع':h.status==='unsold'?'لم يتم البيع':'مسجل',b?.name||'',h.status==='sold'?h.salePrice:'',h.status==='sold'?headSupports(h).map(x=>supporterById(x.supporterId)?.name||'داعم').join(' + '):'',h.status==='sold'?supportAmount(h):'',h.status==='sold'?headTotal(h):'',h.status==='sold'?commission(headTotal(h)):'',h.status==='sold'?netToSeller(h):''])});
+ const csv='\ufeff'+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n'),blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='auction-report.csv';a.click();URL.revokeObjectURL(a.href)
+}
+
+initCloud();
+</script>
+</body>
+</html>
